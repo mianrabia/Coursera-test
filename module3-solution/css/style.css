@@ -74,3 +74,10 @@ li a:hover {
 p {
  color: black;
 }
+
+@media (max-width: 767px) {
+   .menu-style {
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+  }
+}
