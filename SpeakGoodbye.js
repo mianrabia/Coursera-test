@@ -25,4 +25,4 @@ byeSpeaker.speak = function (name) {
 // 'byeSpeaker' on the global scope as well.
 window.byeSpeaker = byeSpeaker;
 // xxxx.xxxx = byeSpeaker;
-})(window)
+})(window);
