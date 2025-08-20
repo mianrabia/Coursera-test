@@ -261,5 +261,18 @@ $(function () {
     return html;
   }
 
+  
+
+
+  const categories = ["PF", "CH", "VG", "A", "DS", "F", "L", "SR", "FR"];
+  let currentIndex = 0;
+
+  function loadNextSpecial() {
+    $dc.loadMenuItems(categories[currentIndex]);
+    currentIndex = (currentIndex + 1) % categories.length;
+  }
+
+
+
   global.$dc = dc;
 })(window);
