@@ -32,7 +32,7 @@ $(function () {
   var menuItemsUrl =
     "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
   var menuItemsTitleHtml = "module4_solution/snippets/menu-items-title.html";
-  var menuItemHtml = "module4_solution/snippets/menu-items.html";
+  var menuItemHtml = "module4_solution/snippets/menu-item.html";
 
   // Convenience function for inserting innerHTML for 'select'
   var insertHtml = function (selector, html) {
@@ -89,20 +89,14 @@ $(function () {
     $ajaxUtils.sendGetRequest(allCategoriesUrl, buildAndShowCategoriesHTML);
   };
 
-  var i = 0;
   // Load the menu items view
   // 'categoryShort' is a short_name for a category
   dc.loadMenuItems = function (categoryShort) {
     showLoading("#main-content");
-    category = categoryShort[i];
-    
     $ajaxUtils.sendGetRequest(
-      menuItemsUrl + category + ".json",
+      menuItemsUrl + categoryShort + ".json",
       buildAndShowMenuItemsHTML
     );
-    i++;
-    if (i >= categoryShort.length) 
-    { i = 0;}
   };
 
   // Builds HTML for the categories page based on the data
@@ -266,33 +260,6 @@ $(function () {
     html = insertProperty(html, portionPropName, portionValue);
     return html;
   }
-
-  
-
-
-const specialsCategories = ['VG','SO','A','DS','SP'];
-let specialsIndex = 0;
-
-$dc.loadSpecials = function () {
-  let category = specialsCategories[specialsIndex];
-  console.log("Loading category:", category);
-
-  $ajaxUtils.sendGetRequest(
-    menuItemsUrl + category + ".json",
-    buildAndShowMenuItemsHTML
-  );
-
-  specialsIndex++;
-  if (specialsIndex >= specialsCategories.length) {
-    specialsIndex = 0;
-  }
-};
-
-
-
-
-
-
 
   global.$dc = dc;
 })(window);
