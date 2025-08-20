@@ -264,13 +264,22 @@ $(function () {
   
 
 
-  const categories = ["PF", "CH", "VG", "A", "DS", "F", "L", "SR", "FR"];
-  var currentIndex = 0;
+  // Rotate through categories on each click
+dc._categories = ["PF", "CH", "VG", "A", "DS", "F", "L", "SR", "FR"];
+dc._currentIndex = 0;
 
-  dc.function loadNextSpecial() {
-    $dc.loadMenuItems(categories[currentIndex]);
-    currentIndex = (currentIndex + 1) % categories.length;
-  }
+dc.loadNextSpecial = function (evt) {
+  // stop the anchor from navigating
+  if (evt && evt.preventDefault) evt.preventDefault();
+  if (evt && evt.stopPropagation) evt.stopPropagation();
+
+  var short = dc._categories[dc._currentIndex];
+  dc.loadMenuItems(short); // call the method already on dc
+
+  dc._currentIndex = (dc._currentIndex + 1) % dc._categories.length;
+  return false; // for inline handlers
+};
+
 
 
 
