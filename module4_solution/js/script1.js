@@ -270,28 +270,25 @@ $(function () {
   
 
 
- // Categories for specials
-const specialsCategories = ['VG', 'SO', 'A', 'DS', 'SP'];
+const specialsCategories = ['VG','SO','A','DS','SP'];
+let specialsIndex = 0;
 
-// Counter
-let i = 0;
-
-dc.loadSpecials = function () {
-  showLoading("#main-content");
-
-  let category = specialsCategories[i];
+$dc.loadSpecials = function () {
+  let category = specialsCategories[specialsIndex];
+  console.log("Loading category:", category);
 
   $ajaxUtils.sendGetRequest(
     menuItemsUrl + category + ".json",
     buildAndShowMenuItemsHTML
   );
 
-  // Increment + loop
-  i++;
-  if (i >= specialsCategories.length) {
-    i = 0;
+  specialsIndex++;
+  if (specialsIndex >= specialsCategories.length) {
+    specialsIndex = 0;
   }
 };
+
+
 
 
 
