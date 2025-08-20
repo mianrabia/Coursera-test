@@ -264,13 +264,15 @@ $(function () {
   }
 
   global.$dc = dc;
-})(window);
 
-function chooseRandomCategory(categories) {
+  global.chooseRandomCategory = function (categories) {
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
   var randomCategory = categories[randomArrayIndex];
 
   // Load that category instead of just returning it
   $dc.loadMenuItems(randomCategory);
 }
+})(window);
+
+
 
