@@ -83,13 +83,14 @@ $(function () {
     );
   });
 
-  function chooseRandomCategory (categories) {
-  // Choose a random index into the array (from 0 inclusively until array length (exclusively))
+  function chooseRandomCategory(categories) {
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
+  var randomCategory = categories[randomArrayIndex];
 
-  // return category object with that randomArrayIndex
-  return categories[randomArrayIndex];
+  // Load that category instead of just returning it
+  $dc.loadMenuItems(randomCategory);
 }
+
 
   // Load the menu categories view
   dc.loadMenuCategories = function () {
