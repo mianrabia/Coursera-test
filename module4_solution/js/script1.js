@@ -32,7 +32,7 @@ $(function () {
   var menuItemsUrl =
     "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
   var menuItemsTitleHtml = "module4_solution/snippets/menu-items-title.html";
-  var menuItemHtml = "module4_solution/snippets/menu-item.html";
+  var menuItemHtml = "module4_solution/snippets/menu-items.html";
 
   // Convenience function for inserting innerHTML for 'select'
   var insertHtml = function (selector, html) {
