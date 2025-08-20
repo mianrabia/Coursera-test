@@ -89,14 +89,20 @@ $(function () {
     $ajaxUtils.sendGetRequest(allCategoriesUrl, buildAndShowCategoriesHTML);
   };
 
+  var i = 0;
   // Load the menu items view
   // 'categoryShort' is a short_name for a category
   dc.loadMenuItems = function (categoryShort) {
     showLoading("#main-content");
+    category = categoryShort[i];
+    
     $ajaxUtils.sendGetRequest(
-      menuItemsUrl + categoryShort + ".json",
+      menuItemsUrl + category + ".json",
       buildAndShowMenuItemsHTML
     );
+    i++;
+    if (i >= categoryShort.length) 
+    { i = 0;}
   };
 
   // Builds HTML for the categories page based on the data
