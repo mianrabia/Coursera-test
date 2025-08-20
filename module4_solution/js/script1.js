@@ -270,21 +270,29 @@ $(function () {
   
 
 
-  // Rotate through categories on each click
-dc._categories = ["PF", "CH", "VG", "A", "DS", "F", "L", "SR", "FR"];
-dc._currentIndex = 0;
+ // Categories for specials
+const specialsCategories = ['VG', 'SO', 'A', 'DS', 'SP'];
 
-dc.loadNextSpecial = function (evt) {
-  // stop the anchor from navigating
-  if (evt && evt.preventDefault) evt.preventDefault();
-  if (evt && evt.stopPropagation) evt.stopPropagation();
+// Counter
+let i = 0;
 
-  var short = dc._categories[dc._currentIndex];
-  dc.loadMenuItems(short); // call the method already on dc
+dc.loadSpecials = function () {
+  showLoading("#main-content");
 
-  dc._currentIndex = (dc._currentIndex + 1) % dc._categories.length;
-  return false; // for inline handlers
+  let category = specialsCategories[i];
+
+  $ajaxUtils.sendGetRequest(
+    menuItemsUrl + category + ".json",
+    buildAndShowMenuItemsHTML
+  );
+
+  // Increment + loop
+  i++;
+  if (i >= specialsCategories.length) {
+    i = 0;
+  }
 };
+
 
 
 
