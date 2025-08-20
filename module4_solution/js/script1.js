@@ -267,7 +267,7 @@ $(function () {
   const categories = ["PF", "CH", "VG", "A", "DS", "F", "L", "SR", "FR"];
   var currentIndex = 0;
 
-  function loadNextSpecial() {
+  dc.function loadNextSpecial() {
     $dc.loadMenuItems(categories[currentIndex]);
     currentIndex = (currentIndex + 1) % categories.length;
   }
