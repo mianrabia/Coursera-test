@@ -265,7 +265,7 @@ $(function () {
 
   global.$dc = dc;
 
-  window.chooseRandomCategory = function (categories) {
+  dc.chooseRandomCategory = function (categories) {
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
   var randomCategory = categories[randomArrayIndex];
 
