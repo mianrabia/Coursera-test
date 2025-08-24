@@ -263,7 +263,7 @@ $(function () {
     return html;
   }
 
-  global.$dc = dc;
+  
 
   dc.chooseRandomCategory = function (categories) {
   var randomArrayIndex = Math.floor(Math.random() * categories.length);
@@ -272,6 +272,8 @@ $(function () {
   // Load that category instead of just returning it
   $dc.loadMenuItems(randomCategory);
 }
+
+  global.$dc = dc;
 })(window);
 
 
